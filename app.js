@@ -5,7 +5,7 @@ const bodyParser = require('body-parser')
 
 const app = express()
 
-const functions = require('./module/functions.js')
+const functions = require('./module/functions')
 
 app.use((request, response, next) =>{
 
@@ -17,8 +17,18 @@ app.use((request, response, next) =>{
     next()
 })
 
+app.get('/v1/teste', cors(), async function(request, response){
+    let dados = functions.teste()
 
-app.get('/v1/lion-school/alunos/filtro', cors(), async function(request, response){
+    if(dados){
+        response.status(200)
+        response.json(dados)
+    }else{
+        response.status(404)
+        response.json({'status': 404, 'message': "Not found"})
+    }
+})
+app.get('/v1/teste', cors(), async function(request, response){
     let statusAC = request.query.sac
     let nCurso = request.query.nc
     let statusA = request.query.sa
