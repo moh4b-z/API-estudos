@@ -1,7 +1,7 @@
-const fs = require('fs');
-const path = require('path');
+const fs = require('fs')
+const path = require('path')
 
-const raiz = ('../../../../../Estudos de Progamação');
+const raiz = ('../../../../../Estudos de Progamação')
 
 // Listar arquivos e pastas
 // const filesAndFolders = fs.readdirSync(raiz);
@@ -18,8 +18,8 @@ const raiz = ('../../../../../Estudos de Progamação');
 // console.log(content);
 
 
-const items = fs.readdirSync(raiz, { withFileTypes: true });
-console.log(items);
+const items = fs.readdirSync(raiz, { withFileTypes: true })
+console.log(items)
 /*
 
 [
