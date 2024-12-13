@@ -10,7 +10,7 @@ const functions = require('./module/functions')
 app.use('/static', express.static('study-material'))
 app.use((request, response, next) =>{
 
-    response.header('Acces-Control-Allow-Origin', '*')
+    response.header('Access-Control-Allow-Origin', '*');
     response.header('Acces-Control-Allow-Methods', 'GET')
 
     app.use(cors()) 
