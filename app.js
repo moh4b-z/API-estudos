@@ -44,9 +44,33 @@ app.get('/v1/inside/root/file/:file', cors(), async function(request, response){
         response.json({'status': 404, 'message': "Not found"})
     }
 })
+app.get('/v1/root/all/file/:file', cors(), async function(request, response){
+    let file = request.params.file
+    let dados = root.searchAllFiles(file)
+
+    if(dados){
+        response.status(200)
+        response.json(dados)
+    }else{
+        response.status(404)
+        response.json({'status': 404, 'message': "Not found"})
+    }
+})
 app.get('/v1/inside/root/folder/:folder', cors(), async function(request, response){
     let folder = request.params.folder
     let dados = root.singleFolderSearch(folder)
+
+    if(dados){
+        response.status(200)
+        response.json(dados)
+    }else{
+        response.status(404)
+        response.json({'status': 404, 'message': "Not found"})
+    }
+})
+app.get('/v1/root/all/folder/:folder', cors(), async function(request, response){
+    let folder = request.params.folder
+    let dados = root.searchAllFolder(folder)
 
     if(dados){
         response.status(200)
