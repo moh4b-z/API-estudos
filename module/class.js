@@ -80,6 +80,5 @@ class File{
 // console.log(root.singleFileSearch('index.html'))
 // console.log(teste.inside())
 module.exports = {
-    Folder,
-    root
+    Folder
 }
