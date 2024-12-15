@@ -75,7 +75,7 @@ class Folder{
 class File{
     constructor(){}
 }
-const root = new Folder('../study-material/')
+// const root = new Folder('../study-material/')
 
 // console.log(root.singleFileSearch('index.html'))
 // console.log(teste.inside())
