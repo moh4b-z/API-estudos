@@ -8,7 +8,7 @@ const app = express()
 
 const functions = require('./module/functions')
 
-app.use('/static', express.static('study-material'))
+app.use('/static', express.static('./study-material/'))
 app.use((request, response, next) =>{
 
     response.header('Access-Control-Allow-Origin', '*');
