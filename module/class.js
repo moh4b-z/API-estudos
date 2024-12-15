@@ -77,7 +77,7 @@ class File{
 }
 const root = new Folder('../study-material/')
 
-console.log(root.singleFileSearch('index.html'))
+// console.log(root.singleFileSearch('index.html'))
 // console.log(teste.inside())
 module.exports = {
     Folder,

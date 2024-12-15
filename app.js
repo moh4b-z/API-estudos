@@ -1,7 +1,9 @@
 const express = require('express')
 const cors = require('cors')
 const bodyParser = require('body-parser')
-const root = require('./module/class')
+
+const functionsClass = require('./module/class')
+const root =  new functionsClass.Folder('./study-material/') 
 
 
 const app = express()
@@ -20,7 +22,7 @@ app.use((request, response, next) =>{
 })
 
 app.get('/v1/inside/root', cors(), async function(request, response){
-    let dados = root.root.inside()
+    let dados = root.inside()
 
     if(dados){
         response.status(200)
@@ -32,7 +34,7 @@ app.get('/v1/inside/root', cors(), async function(request, response){
 })
 app.get('/v1/inside/root/file/:file', cors(), async function(request, response){
     let file = request.params.file
-    let dados = root.root.singleFolderSearch(file)
+    let dados = root.singleFolderSearch(file)
 
     if(dados){
         response.status(200)
@@ -44,7 +46,7 @@ app.get('/v1/inside/root/file/:file', cors(), async function(request, response){
 })
 app.get('/v1/inside/root/folder/:folder', cors(), async function(request, response){
     let folder = request.params.folder
-    let dados = root.root.singleFolderSearch(folder)
+    let dados = root.singleFolderSearch(folder)
 
     if(dados){
         response.status(200)
