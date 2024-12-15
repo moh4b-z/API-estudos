@@ -9,6 +9,9 @@ function teste(){
     objectReturn = {file: `${urlHTML}SENAI-2024-2025/2- Front-end 2° semestre/7- layout_figma-bb/index.html`}
     return objectReturn
 }
+function DirectoryOrFile(namePath){
+
+}
 
 
 module.exports = {

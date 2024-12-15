@@ -13,6 +13,7 @@ class Folder{
     }
     inside(){
         let items = fs.readdirSync(this.path, { withFileTypes: true })
+        
         return items
     }
     singleFolderSearch(nameFolder){
@@ -20,23 +21,65 @@ class Folder{
         let objectReturn = false
         let items = this.inside()
         let foldersThatWillBeChecked = []
-        items.forEach(function(Dirent){
-            if(Dirent[typeSymbol] !== 1 ){
-                objectReturn = `${this.path}${Dirent.name}/`
-                if(Dirent.name === name){
-                    return objectReturn
+        items.forEach((Dirent) => {
+            if(Dirent.isDirectory()){
+                let folderPath = path.join(this.path, Dirent.name)
+                // console.log(folderPath)
+                
+                if((Dirent.name) === name){
+                    objectReturn = folderPath
                 }else{
-                    foldersThatWillBeChecked.push(objectReturn)
+                    foldersThatWillBeChecked.push(folderPath)
                 }
             }
         })
+        if (!objectReturn && foldersThatWillBeChecked.length > 0) {
+            for (let folder of foldersThatWillBeChecked) {
+                let newRoot = new Folder(folder)
+                objectReturn = newRoot.singleFolderSearch(name)
+                if (objectReturn) break 
+            }
+        }
+        return objectReturn
+    }
+    singleFileSearch(nameFile){
+        let name = nameFile
+        let objectReturn = false
+        let items = this.inside()
+        let foldersThatWillBeChecked = []
+        items.forEach((Dirent) => {
+            if(Dirent.isFile()){
+                let filePath = path.join(this.path, Dirent.name)
+                // console.log(filePath)
+                
+                if(Dirent.name === name){
+                    objectReturn = filePath
+                }
+            }else if(Dirent.isDirectory()){
+                let folderPath = path.join(this.path, Dirent.name)
+                // console.log(folderPath)
+                foldersThatWillBeChecked.push(folderPath)
+            }
+        })
+        if (!objectReturn && foldersThatWillBeChecked.length > 0) {
+            for (let folder of foldersThatWillBeChecked) {
+                let newRoot = new Folder(folder)
+                objectReturn = newRoot.singleFileSearch(name)
+                if (objectReturn) break 
+            }
+        }
+        return objectReturn
     }
 }
-const raiz = new Folder('../study-material/')
 
-// console.log(raiz.inside())
+class File{
+    constructor(){}
+}
+const root = new Folder('../study-material/')
 
+console.log(root.singleFileSearch('index.html'))
+// console.log(teste.inside())
 module.exports = {
     Folder,
-    raiz
+    root
 }
