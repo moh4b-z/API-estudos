@@ -1,6 +1,6 @@
 const fs = require('fs')
 const path = require('path')
-const object = require('./class')
+const objectClass = require('./class')
 
 const urlraiz = 'https://api-estudos.onrender.com'
 const urlHTML = 'https://api-estudos.onrender.com/static/'

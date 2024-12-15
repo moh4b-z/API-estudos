@@ -1,11 +1,6 @@
 const fs = require('fs')
 const path = require('path')
-
 const typeSymbol = Symbol.for('type')
-
-const urlraiz = 'https://api-estudos.onrender.com'
-const urlHTML = 'https://api-estudos.onrender.com/static/'
-
 
 class Folder{
     constructor(path){
@@ -24,7 +19,7 @@ class Folder{
         items.forEach((Dirent) => {
             if(Dirent.isDirectory()){
                 let folderPath = path.join(this.path, Dirent.name)
-                console.log(folderPath)
+                // console.log(folderPath)
                 
                 if((Dirent.name) === name){
                     objectReturn = {name: Dirent.name, path: folderPath}
@@ -41,6 +36,34 @@ class Folder{
             }
         }
         return objectReturn
+    }
+    searchAllFolder(nameFolder){
+        let name = nameFolder
+        let objectReturn = {names: name, paths: []}
+        let items = this.inside()
+        let foldersThatWillBeChecked = []
+        items.forEach((Dirent) => {
+            if(Dirent.isDirectory()){
+                let folderPath = path.join(this.path, Dirent.name)
+                let folderPathObject = {name: Dirent.name, path: folderPath}
+                // console.log(folderPath)
+                if((Dirent.name) === name){
+                    objectReturn.paths.push(folderPathObject)
+                }else{
+                    foldersThatWillBeChecked.push(folderPath)
+                }
+            }
+        })
+        if (foldersThatWillBeChecked.length > 0) {
+            for (let folder of foldersThatWillBeChecked) {
+                let newRoot = new Folder(folder)
+                let newRootObjectReturn = newRoot.searchAllFolder(name)
+                if (newRootObjectReturn){
+                    objectReturn.paths = objectReturn.paths.concat(newRootObjectReturn.paths)
+                } 
+            }
+        }
+        return objectReturn.paths.length > 0 ? objectReturn : false
     }
     singleFileSearch(nameFile){
         let name = nameFile
@@ -70,6 +93,35 @@ class Folder{
         }
         return objectReturn
     }
+    searchAllFiles(nameFile){
+        let name = nameFile
+        let objectReturn = {names: name, paths: []}
+        let items = this.inside()
+        let foldersThatWillBeChecked = []
+        items.forEach((Dirent) => {
+            if(Dirent.isFile()){
+                let filePath = path.join(this.path, Dirent.name)
+                let filePathObject = {name: Dirent.name, path: filePath}
+                // console.log(filePath)
+                if(Dirent.name === name){
+                    objectReturn.paths.push(filePathObject)
+                }
+            }else if(Dirent.isDirectory()){
+                let folderPath = path.join(this.path, Dirent.name)
+                foldersThatWillBeChecked.push(folderPath)
+            }
+        })
+        if (foldersThatWillBeChecked.length > 0) {
+            for (let folder of foldersThatWillBeChecked) {
+                let newRoot = new Folder(folder)
+                let newRootObjectReturn = newRoot.searchAllFiles(name)
+                if (newRootObjectReturn){
+                    objectReturn.paths = objectReturn.paths.concat(newRootObjectReturn.paths)
+                } 
+            }
+        }
+        return objectReturn.paths.length > 0 ? objectReturn : false
+    }
 }
 
 class File{
@@ -86,7 +138,7 @@ class File{
 }
 // const root = new Folder('../study-material')
 
-// console.log(root.singleFolderSearch('Java'))
+// console.log(root.searchAllFiles('index.html'))
 // let java = root.singleFolderSearch('C')
 // let JJ = new Folder(java.path)
 // console.log(JJ.singleFolderSearch('POO'))
