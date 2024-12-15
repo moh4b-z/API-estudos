@@ -24,10 +24,10 @@ class Folder{
         items.forEach((Dirent) => {
             if(Dirent.isDirectory()){
                 let folderPath = path.join(this.path, Dirent.name)
-                // console.log(folderPath)
+                console.log(folderPath)
                 
                 if((Dirent.name) === name){
-                    objectReturn = folderPath
+                    objectReturn = {name: Dirent.name, path: folderPath}
                 }else{
                     foldersThatWillBeChecked.push(folderPath)
                 }
@@ -53,7 +53,7 @@ class Folder{
                 // console.log(filePath)
                 
                 if(Dirent.name === name){
-                    objectReturn = filePath
+                    objectReturn = {name: Dirent.name, path: filePath}
                 }
             }else if(Dirent.isDirectory()){
                 let folderPath = path.join(this.path, Dirent.name)
@@ -73,12 +73,26 @@ class Folder{
 }
 
 class File{
-    constructor(){}
+    constructor(path, name){
+        this.path = path
+        this.name = name
+    }
+    fileExtension(){
+        return path.extname(this.name)
+    }
+    fileContent(){
+        return fs.readFileSync('./functions.js', 'utf-8')
+    }
 }
-// const root = new Folder('../study-material/')
+// const root = new Folder('../study-material')
 
+// console.log(root.singleFolderSearch('Java'))
+// let java = root.singleFolderSearch('C')
+// let JJ = new Folder(java.path)
+// console.log(JJ.singleFolderSearch('POO'))
 // console.log(root.singleFileSearch('index.html'))
 // console.log(teste.inside())
 module.exports = {
-    Folder
+    Folder,
+    File
 }
