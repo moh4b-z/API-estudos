@@ -81,7 +81,7 @@ class File{
         return path.extname(this.name)
     }
     fileContent(){
-        return fs.readFileSync('./functions.js', 'utf-8')
+        return fs.readFileSync(this.path, 'utf-8')
     }
 }
 // const root = new Folder('../study-material')
