@@ -32,9 +32,10 @@ app.get('/v1/inside/root', cors(), async function(request, response){
         response.json({'status': 404, 'message': "Not found"})
     }
 })
-app.get('/v1/inside/root/file/:file', cors(), async function(request, response){
-    let file = request.params.file
-    let dados = root.singleFolderSearch(file)
+app.get('/v1/inside/root/file/', cors(), async function(request, response){
+    let file = request.query.f
+    let exception = request.query.e
+    let dados = root.singleFolderSearch(file, exception)
 
     if(dados){
         response.status(200)
@@ -44,8 +45,9 @@ app.get('/v1/inside/root/file/:file', cors(), async function(request, response){
         response.json({'status': 404, 'message': "Not found"})
     }
 })
-app.get('/v1/root/all/file/:file', cors(), async function(request, response){
-    let file = request.params.file
+app.get('/v1/root/all/file/', cors(), async function(request, response){
+    let file = request.query.f
+    let exception = request.query.e
     let dados = root.searchAllFiles(file)
 
     if(dados){
@@ -56,8 +58,9 @@ app.get('/v1/root/all/file/:file', cors(), async function(request, response){
         response.json({'status': 404, 'message': "Not found"})
     }
 })
-app.get('/v1/inside/root/folder/:folder', cors(), async function(request, response){
-    let folder = request.params.folder
+app.get('/v1/inside/root/folder/', cors(), async function(request, response){
+    let folder = request.query.f
+    let exception = request.query.e
     let dados = root.singleFolderSearch(folder)
 
     if(dados){
@@ -68,8 +71,9 @@ app.get('/v1/inside/root/folder/:folder', cors(), async function(request, respon
         response.json({'status': 404, 'message': "Not found"})
     }
 })
-app.get('/v1/root/all/folder/:folder', cors(), async function(request, response){
-    let Folder = request.params.folder
+app.get('/v1/root/all/folder/', cors(), async function(request, response){
+    let Folder = request.query.f
+    let exception = request.query.e
     // console.log(Folder)
     let dados = root.searchAllFolder(Folder)
 
