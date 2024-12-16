@@ -69,8 +69,9 @@ app.get('/v1/inside/root/folder/:folder', cors(), async function(request, respon
     }
 })
 app.get('/v1/root/all/folder/:folder', cors(), async function(request, response){
-    let folder = request.params.folder
-    let dados = root.searchAllFolder(folder)
+    let Folder = request.params.folder
+    // console.log(Folder)
+    let dados = root.searchAllFolder(Folder)
 
     if(dados){
         response.status(200)

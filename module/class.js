@@ -12,7 +12,7 @@ class Folder{
         return items
     }
     
-    singleFolderSearch(nameFolder){
+    singleFolderSearch(nameFolder, exception){
         let name = nameFolder
         let objectReturn = false
         let items = this.inside()
@@ -24,21 +24,23 @@ class Folder{
                 
                 if((Dirent.name) === name){
                     objectReturn = {name: Dirent.name, path: folderPath}
-                }else{
-                    foldersThatWillBeChecked.push(folderPath)
+                }else {
+                    if (!exception || Dirent.name !== exception) {
+                        foldersThatWillBeChecked.push(folderPath)
+                    }
                 }
             }
         })
         if (!objectReturn && foldersThatWillBeChecked.length > 0) {
             for (let folder of foldersThatWillBeChecked) {
                 let newRoot = new Folder(folder)
-                objectReturn = newRoot.singleFolderSearch(name)
+                objectReturn = newRoot.singleFolderSearch(name, exception)
                 if (objectReturn) break 
             }
         }
         return objectReturn
     }
-    searchAllFolder(nameFolder){
+    searchAllFolder(nameFolder, exception){
         let name = nameFolder
         let objectReturn = {names: name, paths: []}
         let items = this.inside()
@@ -50,15 +52,17 @@ class Folder{
                 // console.log(folderPath)
                 if((Dirent.name) === name){
                     objectReturn.paths.push(folderPathObject)
-                }else{
-                    foldersThatWillBeChecked.push(folderPath)
+                }else {
+                    if (!exception || Dirent.name !== exception) {
+                        foldersThatWillBeChecked.push(folderPath)
+                    }
                 }
             }
         })
         if (foldersThatWillBeChecked.length > 0) {
             for (let folder of foldersThatWillBeChecked) {
                 let newRoot = new Folder(folder)
-                let newRootObjectReturn = newRoot.searchAllFolder(name)
+                let newRootObjectReturn = newRoot.searchAllFolder(name, exception)
                 if (newRootObjectReturn){
                     objectReturn.paths = objectReturn.paths.concat(newRootObjectReturn.paths)
                 } 
@@ -66,7 +70,7 @@ class Folder{
         }
         return objectReturn.paths.length > 0 ? objectReturn : false
     }
-    searchAllFolderWith(letterFolder){
+    searchAllFolderWith(letterFolder, exception){
         let letter = letterFolder
         let objectReturn = {excerpt: letter, paths: []}
         let items = this.inside()
@@ -79,15 +83,17 @@ class Folder{
                 // console.log(folderPath)
                 if(regex.test(Dirent.name)){
                     objectReturn.paths.push(folderPathObject)
-                }else{
-                    foldersThatWillBeChecked.push(folderPath)
+                }else {
+                    if (!exception || Dirent.name !== exception) {
+                        foldersThatWillBeChecked.push(folderPath)
+                    }
                 }
             }
         })
         if (foldersThatWillBeChecked.length > 0) {
             for (let folder of foldersThatWillBeChecked) {
                 let newRoot = new Folder(folder)
-                let newRootObjectReturn = newRoot.searchAllFolderWith(letter)
+                let newRootObjectReturn = newRoot.searchAllFolderWith(letter, exception)
                 if (newRootObjectReturn){
                     objectReturn.paths = objectReturn.paths.concat(newRootObjectReturn.paths)
                 } 
@@ -95,7 +101,10 @@ class Folder{
         }
         return objectReturn.paths.length > 0 ? objectReturn : false
     }
-    singleFileSearch(nameFile){
+
+
+
+    singleFileSearch(nameFile, exception){
         let name = nameFile
         let objectReturn = false
         let items = this.inside()
@@ -111,19 +120,21 @@ class Folder{
             }else if(Dirent.isDirectory()){
                 let folderPath = path.join(this.path, Dirent.name)
                 // console.log(folderPath)
-                foldersThatWillBeChecked.push(folderPath)
+                if (!exception || Dirent.name !== exception) {
+                    foldersThatWillBeChecked.push(folderPath)
+                }
             }
         })
         if (!objectReturn && foldersThatWillBeChecked.length > 0) {
             for (let folder of foldersThatWillBeChecked) {
                 let newRoot = new Folder(folder)
-                objectReturn = newRoot.singleFileSearch(name)
+                objectReturn = newRoot.singleFileSearch(name, exception)
                 if (objectReturn) break 
             }
         }
         return objectReturn
     }
-    searchAllFiles(nameFile){
+    searchAllFiles(nameFile, exception){
         let name = nameFile
         let objectReturn = {names: name, paths: []}
         let items = this.inside()
@@ -138,13 +149,15 @@ class Folder{
                 }
             }else if(Dirent.isDirectory()){
                 let folderPath = path.join(this.path, Dirent.name)
-                foldersThatWillBeChecked.push(folderPath)
+                if (!exception || Dirent.name !== exception) {
+                    foldersThatWillBeChecked.push(folderPath)
+                }
             }
         })
         if (foldersThatWillBeChecked.length > 0) {
             for (let folder of foldersThatWillBeChecked) {
                 let newRoot = new Folder(folder)
-                let newRootObjectReturn = newRoot.searchAllFiles(name)
+                let newRootObjectReturn = newRoot.searchAllFiles(name, exception)
                 if (newRootObjectReturn){
                     objectReturn.paths = objectReturn.paths.concat(newRootObjectReturn.paths)
                 } 
@@ -152,7 +165,7 @@ class Folder{
         }
         return objectReturn.paths.length > 0 ? objectReturn : false
     }
-    searchAllFilesWith(letterFolder){
+    searchAllFilesWith(letterFolder, exception){
         let letter = letterFolder
         let objectReturn = {excerpt: letter, paths: []}
         let items = this.inside()
@@ -168,13 +181,15 @@ class Folder{
                 }
             }else if(Dirent.isDirectory()){
                 let folderPath = path.join(this.path, Dirent.name)
-                foldersThatWillBeChecked.push(folderPath)
+                if (!exception || Dirent.name !== exception) {
+                    foldersThatWillBeChecked.push(folderPath)
+                }
             }
         })
         if (foldersThatWillBeChecked.length > 0) {
             for (let folder of foldersThatWillBeChecked) {
                 let newRoot = new Folder(folder)
-                let newRootObjectReturn = newRoot.searchAllFilesWith(letter)
+                let newRootObjectReturn = newRoot.searchAllFilesWith(letter, exception)
                 if (newRootObjectReturn){
                     objectReturn.paths = objectReturn.paths.concat(newRootObjectReturn.paths)
                 } 
@@ -198,11 +213,11 @@ class File{
 }
 // const root = new Folder('../study-material')
 
-// console.log(root.searchAllFilesWith('.html'))
+// console.log(root.searchAllFolder('accepts'))
 // let java = root.singleFolderSearch('C')
 // let JJ = new Folder(java.path)
 // console.log(JJ.singleFolderSearch('POO'))
-// console.log(root.singleFileSearch('index.html'))
+// console.log(root.singleFileSearch('HISTORY.md', 'node_modules'))
 // console.log(teste.inside())
 module.exports = {
     Folder,
