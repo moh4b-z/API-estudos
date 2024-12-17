@@ -32,6 +32,7 @@ app.get('/v1/inside/root', cors(), async function(request, response){
         response.json({'status': 404, 'message': "Not found"})
     }
 })
+
 app.get('/v1/inside/root/file/', cors(), async function(request, response){
     let file = request.query.f
     let exception = request.query.e
@@ -48,7 +49,7 @@ app.get('/v1/inside/root/file/', cors(), async function(request, response){
 app.get('/v1/root/all/file/', cors(), async function(request, response){
     let file = request.query.f
     let exception = request.query.e
-    let dados = root.searchAllFiles(file)
+    let dados = root.searchAllFiles(file, exception)
 
     if(dados){
         response.status(200)
@@ -58,10 +59,11 @@ app.get('/v1/root/all/file/', cors(), async function(request, response){
         response.json({'status': 404, 'message': "Not found"})
     }
 })
+
 app.get('/v1/inside/root/folder/', cors(), async function(request, response){
     let folder = request.query.f
     let exception = request.query.e
-    let dados = root.singleFolderSearch(folder)
+    let dados = root.singleFolderSearch(folder, exception)
 
     if(dados){
         response.status(200)
@@ -75,7 +77,38 @@ app.get('/v1/root/all/folder/', cors(), async function(request, response){
     let Folder = request.query.f
     let exception = request.query.e
     // console.log(Folder)
-    let dados = root.searchAllFolder(Folder)
+    let dados = root.searchAllFolder(Folder, exception)
+
+    if(dados){
+        response.status(200)
+        response.json(dados)
+    }else{
+        response.status(404)
+        response.json({'status': 404, 'message': "Not found"})
+    }
+})
+
+app.get('/v1/search/', cors(), async function(request, response){
+    let Path = request.query.pa
+    let File = request.query.fi
+    let Folder = request.query.fo
+    let Exception = request.query.e
+    let Tex = request.query.tex
+    // console.log(Folder)
+    let dados = functions.searchWith(Path, File, Folder, Exception, Tex)
+
+    if(dados){
+        response.status(200)
+        response.json(dados)
+    }else{
+        response.status(404)
+        response.json({'status': 404, 'message': "Not found"})
+    }
+})
+
+app.get('/v1/path/in/link/:path', cors(), async function(request, response){
+    let path = request.params.path
+    let dados = functions.pathTransformedLink(path)
 
     if(dados){
         response.status(200)
