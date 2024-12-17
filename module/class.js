@@ -75,11 +75,11 @@ class Folder{
         let objectReturn = {excerpt: letter, paths: []}
         let items = this.inside()
         let foldersThatWillBeChecked = []
+        let regex = new RegExp(letter, "i")
         items.forEach((Dirent) => {
             if(Dirent.isDirectory()){
                 let folderPath = path.join(this.path, Dirent.name)
                 let folderPathObject = {name: Dirent.name, path: folderPath}
-                let regex = new RegExp(letter, "i")
                 // console.log(folderPath)
                 if(regex.test(Dirent.name)){
                     objectReturn.paths.push(folderPathObject)
@@ -170,11 +170,11 @@ class Folder{
         let objectReturn = {excerpt: letter, paths: []}
         let items = this.inside()
         let foldersThatWillBeChecked = []
+        let regex = new RegExp(letter, "i")
         items.forEach((Dirent) => {
             if(Dirent.isFile()){
                 let filePath = path.join(this.path, Dirent.name)
                 let filePathObject = {name: Dirent.name, path: filePath}
-                let regex = new RegExp(letter, "i")
                 // console.log(filePath)
                 if(regex.test(Dirent.name)){
                     objectReturn.paths.push(filePathObject)
@@ -190,6 +190,45 @@ class Folder{
             for (let folder of foldersThatWillBeChecked) {
                 let newRoot = new Folder(folder)
                 let newRootObjectReturn = newRoot.searchAllFilesWith(letter, exception)
+                if (newRootObjectReturn){
+                    objectReturn.paths = objectReturn.paths.concat(newRootObjectReturn.paths)
+                } 
+            }
+        }
+        return objectReturn.paths.length > 0 ? objectReturn : false
+    }
+
+
+    searchAllWith(letterFolder, exception){
+        let letter = letterFolder
+        let objectReturn = {excerpt: letter, paths: []}
+        let items = this.inside()
+        let foldersThatWillBeChecked = []
+        let regex = new RegExp(letter, "i")
+
+        items.forEach((Dirent) => {
+            if(Dirent.isFile()){
+                let filePath = path.join(this.path, Dirent.name)
+                let filePathObject = {name: Dirent.name, path: filePath, tipe: 'file'}
+                // console.log(filePath)
+                if(regex.test(Dirent.name)){
+                    objectReturn.paths.push(filePathObject)
+                }
+            }else if(Dirent.isDirectory()){
+                let folderPath = path.join(this.path, Dirent.name)
+                let folderPathObject = {name: Dirent.name, path: folderPath, tipe: 'folder'}
+                if(regex.test(Dirent.name)){
+                    objectReturn.paths.push(folderPathObject)
+                }
+                if (!exception || Dirent.name !== exception) {
+                    foldersThatWillBeChecked.push(folderPath)
+                }
+            }
+        })
+        if (foldersThatWillBeChecked.length > 0) {
+            for (let folder of foldersThatWillBeChecked) {
+                let newRoot = new Folder(folder)
+                let newRootObjectReturn = newRoot.searchAllWith(letter, exception)
                 if (newRootObjectReturn){
                     objectReturn.paths = objectReturn.paths.concat(newRootObjectReturn.paths)
                 } 
@@ -213,7 +252,7 @@ class File{
 }
 // const root = new Folder('../study-material')
 
-// console.log(root.searchAllFolder('accepts'))
+// console.log(root.searchAllWith('J'))
 // let java = root.singleFolderSearch('C')
 // let JJ = new Folder(java.path)
 // console.log(JJ.singleFolderSearch('POO'))
