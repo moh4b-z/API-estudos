@@ -34,12 +34,13 @@ function searchWith(Path, File, Folder, Exception, Tex){
 
 function pathTransformedLink(path){
     let link = path.replace('./study-material/', urlHTML)
+    link = path.replace('study-material/', urlHTML)
     return link == path ? false : link
 }
 function DirectoryOrFile(namePath){
 
 }
-
+// console.log(pathTransformedLink('./study-material/SENAI-2024-2025/2- Front-end 2° semestre/3- tabela-2024-bb/index.html'))
 
 module.exports = {
     searchWith,

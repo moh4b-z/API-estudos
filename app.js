@@ -106,8 +106,8 @@ app.get('/v1/search/', cors(), async function(request, response){
     }
 })
 
-app.get('/v1/path/in/link/:path', cors(), async function(request, response){
-    let path = request.params.path
+app.get('/v1/path/in/link/', cors(), async function(request, response){
+    let path = request.query.p
     let dados = functions.pathTransformedLink(path)
 
     if(dados){
