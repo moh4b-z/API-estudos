@@ -10,20 +10,20 @@ function teste(){
     return objectReturn
 }
 
-function searchWith(Path, File, Folder, Exception, Tex){
+function searchWith(Path, File, Folder, Exception, Name){
     let path = Path ? Path : './study-material/'
     let root = new objectClass.Folder(path)
     let file = File
     let folder =  Folder
     let exception = Exception
-    let tex = Tex
+    let name = Name
     let objectReturn = false
     if(file && folder){
-        objectReturn = root.searchAllWith(tex, exception)
+        objectReturn = root.searchAllWith(name, exception)
     }else if(file){
-        objectReturn = root.searchAllFilesWith(tex, exception)
+        objectReturn = root.searchAllFilesWith(name, exception)
     }else if(folder){
-        objectReturn = root.searchAllFolderWith(tex, exception)
+        objectReturn = root.searchAllFolderWith(name, exception)
     }else{
         objectReturn = false
     }
@@ -37,8 +37,8 @@ function pathTransformedLink(path){
     link = path.replace('study-material/', urlHTML)
     return link == path ? false : link
 }
-function DirectoryOrFile(namePath){
-
+function FileTrue(Path, root){
+    
 }
 // console.log(pathTransformedLink('./study-material/SENAI-2024-2025/2- Front-end 2° semestre/3- tabela-2024-bb/index.html'))
 

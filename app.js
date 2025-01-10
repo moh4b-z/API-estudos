@@ -2,6 +2,8 @@ const express = require('express')
 const cors = require('cors')
 const bodyParser = require('body-parser')
 
+const path = require('path')
+
 const functionsClass = require('./module/class')
 const root =  new functionsClass.Folder('./study-material/') 
 
@@ -88,14 +90,16 @@ app.get('/v1/root/all/folder/', cors(), async function(request, response){
     }
 })
 
+
+
 app.get('/v1/search/', cors(), async function(request, response){
     let Path = request.query.pa
     let File = request.query.fi
     let Folder = request.query.fo
     let Exception = request.query.e
-    let Tex = request.query.tex
+    let Name = request.query.name
     // console.log(Folder)
-    let dados = functions.searchWith(Path, File, Folder, Exception, Tex)
+    let dados = functions.searchWith(Path, File, Folder, Exception, Name)
 
     if(dados){
         response.status(200)
@@ -107,6 +111,19 @@ app.get('/v1/search/', cors(), async function(request, response){
 })
 
 app.get('/v1/path/in/link/', cors(), async function(request, response){
+    let path = request.query.p
+    let dados = functions.pathTransformedLink(path)
+
+    if(dados){
+        response.status(200)
+        response.json(dados)
+    }else{
+        response.status(404)
+        response.json({'status': 404, 'message': "Not found"})
+    }
+})
+
+app.get('/v1/file/', cors(), async function(request, response){
     let path = request.query.p
     let dados = functions.pathTransformedLink(path)
 
