@@ -74,7 +74,7 @@ function getListsEachUsersConversations(number){
 
     return status ? objetoRetorno : status
 }
-// console.log(listsEachUsersConversations("11987876567"))
+// console.log(getListsEachUsersConversations("11987876567"))
 
 function getFilterByUsernameAndContactName(number, name){
     let numberUser = number
@@ -123,12 +123,21 @@ function getFilterKeywordResearch(number, name, word){
 }
 // console.log(getFilterKeywordResearch("11987876567", "Ana Maria", "You"))
 
+function fetFilterAll(number, name, word){
+    let retorno = false
+    if(number && name && word){
+        retorno = getFilterKeywordResearch(number, name, word)
+    }else if(number && name && !word){
+        retorno = getFilterByUsernameAndContactName(number, name)
+    }else if(number && !name && !word){
+        retorno = getListsEachUsersConversations(number)
+    }
+    return retorno
+}
 
 module.exports = {
-    getFilterByUsernameAndContactName,
-    getFilterKeywordResearch,
     getListAllUserPersonalData,
     getListContactDetailsForEachUser,
     getListUserProfileAccountData,
-    getListsEachUsersConversations
+    fetFilterAll
 }

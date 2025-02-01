@@ -11,7 +11,7 @@ const bodyParser = require('body-parser')
 
 const app = express()
 
-const functionsContatos = require('./module/functions.js')
+const functionsContatos = require('./module/functions')
 
 app.use((request, response, next) =>{
 
@@ -20,6 +20,61 @@ app.use((request, response, next) =>{
     app.use(cors())
 
     next()
+})
+
+
+app.get('/v1/whatsapp/data/user/unalterable/', cors(), async function(request, response){
+    let number = request.query.nu
+    let dados = functionsContatos.getListAllUserPersonalData(number)
+
+    if(dados){
+        response.status(200)
+        response.json(dados)
+    }else{
+        response.status(404)
+        response.json({'status': 404, 'message': "Not found"})
+    }
+})
+
+app.get('/v1/whatsapp/data/user/editable/', cors(), async function(request, response){
+    let number = request.query.nu
+    let dados = functionsContatos.getListUserProfileAccountData(number)
+
+    if(dados){
+        response.status(200)
+        response.json(dados)
+    }else{
+        response.status(404)
+        response.json({'status': 404, 'message': "Not found"})
+    }
+})
+
+app.get('/v1/whatsapp/data/contact/user/', cors(), async function(request, response){
+    let number = request.query.nu
+    let dados = functionsContatos.getListContactDetailsForEachUser(number)
+
+    if(dados){
+        response.status(200)
+        response.json(dados)
+    }else{
+        response.status(404)
+        response.json({'status': 404, 'message': "Not found"})
+    }
+})
+
+app.get('/v1/whatsapp/filter/', cors(), async function(request, response){
+    let number = request.query.nu
+    let name = request.query.na
+    let word = request.query.wo
+    let dados = functionsContatos.fetFilterAll(number, name, word)
+
+    if(dados){
+        response.status(200)
+        response.json(dados)
+    }else{
+        response.status(404)
+        response.json({'status': 404, 'message': "Not found"})
+    }
 })
 
 
