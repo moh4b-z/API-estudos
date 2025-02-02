@@ -4,13 +4,13 @@ const bodyParser = require('body-parser')
 
 const path = require('path')
 
-const functionsClass = require('./module/class')
+const functionsClass = require('./services/class')
 const root =  new functionsClass.Folder('./study-material/') 
 
 
 const app = express()
 
-const functions = require('./module/functions')
+const functions = require('./services/functions')
 
 app.use('/static', express.static('./study-material/'))
 app.use((request, response, next) =>{
