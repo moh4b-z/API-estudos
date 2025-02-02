@@ -1,70 +1,25 @@
-const express = require('express')
-const cors = require('cors')
+const express = require("express")
+const cors = require("cors")
 const bodyParser = require('body-parser')
-
-const path = require('path')
-
-const functionsClass = require('./services/class')
-const root =  new functionsClass.Folder('./study-material/') 
-
 
 const app = express()
 
-const functions = require('./services/functions')
-
+// Middlewares
+app.use(cors())
+app.use(bodyParser.json())
 app.use('/static', express.static('./study-material/'))
-app.use((request, response, next) =>{
 
-    response.header('Access-Control-Allow-Origin', '*');
-    response.header('Acces-Control-Allow-Methods', 'GET')
+// Rotas
+const folderRoutes = require("./routes/folderRoutes")
+const fileRoutes = require("./routes/fileRoutes")
+const foldersAndFiles = require('./routes/foldersAndFilesRoutes')
 
-    app.use(cors()) 
+app.use("/v1/folders", folderRoutes)
+app.use("/v1/files", fileRoutes)
+app.use("/v1/all", foldersAndFiles)
 
-    next()
-})
-
-app.get('/v1/inside/root/file/', cors(), async function(request, response){
-    let file = request.query.f
-    let exception = request.query.e
-    let dados = root.singleFolderSearch(file, exception)
-
-    if(dados){
-        response.status(200)
-        response.json(dados)
-    }else{
-        response.status(404)
-        response.json({'status': 404, 'message': "Not found"})
-    }
-})
-app.get('/v1/root/all/file/', cors(), async function(request, response){
-    let file = request.query.f
-    let exception = request.query.e
-    let dados = root.searchAllFiles(file, exception)
-
-    if(dados){
-        response.status(200)
-        response.json(dados)
-    }else{
-        response.status(404)
-        response.json({'status': 404, 'message': "Not found"})
-    }
-})
-
-
-app.get('/v1/file/', cors(), async function(request, response){
-    let path = request.query.p
-    let dados = functions.pathTransformedLink(path)
-
-    if(dados){
-        response.status(200)
-        response.json(dados)
-    }else{
-        response.status(404)
-        response.json({'status': 404, 'message': "Not found"})
-    }
-})
-
-const port = process.env.PORT || 8080
-app.listen(port, function(){
-    console.log('API aguardando requisição ...')
+// Inicia o servidor
+const PORT = process.env.PORT || 8080
+app.listen(PORT, function(){
+  console.log(`Servidor rodando na porta ${PORT}`)
 })
