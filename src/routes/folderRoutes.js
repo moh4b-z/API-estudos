@@ -3,12 +3,16 @@ const router = express.Router()
 const folderController = require('../controllers/folderController')
 
 router.get(
-    '/v1/inside/root', 
+    '/root/inside/', 
     folderController.getInsideRoot
 )
 router.get(
-    '/v1/inside/root/folder', 
-    folderController.searchSingleFolder
+    '/root/inside/folder/', 
+    folderController.getSearchSingleFolder
+)
+router.get(
+    '/root/all/folder/', 
+    folderController.getSearchAllFolder
 )
 
 module.exports = router
