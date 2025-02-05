@@ -1,5 +1,5 @@
-const Folders = require('../services/FolderService')
-const Files = require('../services/FileService')
+const Folders = require('../services/model/Folder')
+const Files = require('../services/model/File')
 
 const urlraiz = 'https://api-estudos.onrender.com'
 const urlHTML = 'https://api-estudos.onrender.com/static/'
@@ -11,7 +11,7 @@ function teste(){
 }
 
 function searchWith(Path, File, Folder, Exception, Name){
-    let path = Path ? Path : './study-material/'
+    let path = Path ? Path : '../study-material/'
     let root = new Folders(path)
     let file = File
     let folder =  Folder

@@ -1,9 +1,10 @@
-const pathUtils = require('../utils/pathUtils')
+const File = require('../services/model/File')
 
 
 function getPathAndLink (request, response) {
     let path = request.query.p
-    let dados = pathUtils.pathTransformedLink(path)
+    let fileLink = new File(path)
+    let dados = fileLink.pathTransformedLink()
 
     if(dados){
         response.status(200)

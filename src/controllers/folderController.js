@@ -1,4 +1,4 @@
-const Folder = require('../services/FolderService')
+const Folder = require('../services/model/Folder')
 
 const root = new Folder('../study-material/')
 
