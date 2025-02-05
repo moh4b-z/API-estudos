@@ -1,0 +1,166 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul, ol, li{
+    list-style: none;
+}
+
+body{
+    height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    position: relative;
+    background-color: #dcf1f5;
+    font-size: 1.1rem;
+}
+
+.bolas{
+    width: 30vw;
+    height: 30vw;
+    border-radius: 50%;
+    position: absolute;
+    z-index: -1;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    color: #106b7a;
+}
+#blue{
+    left: calc(100vw - 15vw);
+    top: -15vw;
+    background-color: #a2cad0;
+}
+
+#red{
+    width: 25vw;
+    height: 25vw;
+    left: -140px;
+    top: -150px;
+    background-color: #c19981;
+}
+#red div{
+    position: relative;
+    width: 20vw;
+    height: 20vw;
+    background-color: #dcf1f5;
+}
+
+header{
+    height: 100px;
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo{
+    width: 200px;
+}
+.logo img{
+    width: 100%;
+}
+
+h1{
+    color: #106b7a;
+    text-align: center;
+}
+
+h2{
+    color: #00BAD8;
+    font-size: 1.15rem;
+}
+p{
+    font-size: 1rem;
+}
+
+main{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2vh;
+    width: 100%;
+    height: calc(100vh - 100px);
+    padding: 10px;
+    color: black;
+    padding-bottom: 10vh;
+}
+
+section{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.text1 p{
+    width: 150%;
+}
+
+.text23{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.text3{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.text3 h3, .text3 span{
+    background-color: #f8f7da;
+    padding: 5px;
+    border-radius: 50px;
+}
+.qrcode{
+    height: 200px;
+    width: 200px;
+    border-radius: 0;
+    border: 5px solid #f8f7da;
+}
+
+.img{
+    position: absolute;
+    bottom: -8vw;
+    right: -8vw;
+    height: 30vw;
+    width: 30vw;
+    border-radius: 50%;
+}
+
+.nuvem{
+    position: absolute;
+    z-index: 1;
+    width: 15vw;
+    bottom: 5vh;
+    left: 4vw;
+
+}
+
+@media (max-width: 735px){
+    main{
+        grid-template-columns: repeat(1, 1fr);
+        gap: 4vh;
+    }
+    .text1 p{
+        width: 100%;
+    }
+    .nuvem{
+        width: 35vw;
+    }
+}

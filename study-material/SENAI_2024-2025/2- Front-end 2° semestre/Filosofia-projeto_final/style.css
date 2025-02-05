@@ -1,0 +1,440 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul, ol, li{
+    list-style: none;
+}
+
+button{
+    cursor: pointer;
+}
+@font-face {
+    font-family: 'mediaeval';
+    src: url(./PorSiempreGótica.ttf) format('truetype');
+    font-weight: normal;
+    font-style: normal
+}
+
+:root{
+    --color-primary: #000000;
+    --color-secondary: #F3AE45;
+    --color-third: #D3C8B8;
+    --color-fourth: #f8c7bb;
+    --padding-standard: 1vw;
+}
+
+html, body{
+    scroll-behavior: smooth;
+}
+h1, h2, h3, h4{
+    font-family: "mediaeval";
+}
+p, span{
+    font-size: 12px;
+}
+
+body{
+    position: relative;
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+/* Estilo para o trilho da barra de rolagem */
+body::-webkit-scrollbar-track {
+    background: var(--color-third);
+    border-radius: 10px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: var(--color-secondary);
+    border-radius: 10px;
+    border: 2px solid var(--color-third);
+}
+body::-webkit-scrollbar-thumb:active {
+    background-color: var(--color-fourth); 
+}
+
+h1{
+    font-size: 64px;
+}
+
+header{
+    position: fixed;
+    width: 100%;
+    height: 150px;
+    background-color: var(--color-primary);
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+    padding: var(--padding-standard);
+    z-index: 1;
+}
+header ul{
+    display: none;
+    width: 80%;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 5;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: 100vw;
+    overflow: hidden;
+}
+
+main section{
+    padding: var(--padding-standard);
+    padding-top: 150px;
+    display: flex;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+main section p {
+    color: var(--color-third);
+    font-size: 28px;
+}
+main section h2 {
+    font-size: 34px;
+}
+
+.inicio{
+    padding-top: 200px;
+    align-items: center;
+}
+
+.inicio div{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 60%;
+}
+.inicio h2{
+    font-size: 96px;
+}
+.inicio p{
+    font-size: 48px;
+    color: var(--color-third);
+}
+.inicio img{
+    height: 100%;
+}
+.ativicao{
+    width: 20vw;
+    font-size: 48px;
+    background-color: transparent;
+    border: 1px solid var(--color-secondary); 
+    padding: 5px;
+    padding-inline: 10px;
+    color: var(--color-third);
+}
+
+.esquerda{
+    height: 100%;
+    width: 50%;
+    padding: var(--padding-standard);
+    padding-right: 5vw;
+}
+.direita{
+    height: 100%;
+    width: 50%;
+    padding: var(--padding-standard);
+    padding-left: 5vw;
+}
+
+
+#filosofia{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 2vw;
+    gap: 1vw 10vw;
+}
+#filosofia h2{
+    font-size: 48px;
+}
+#filosofia h4{
+    font-size: 48px;
+}
+.topo{
+    grid-column: 1/3;
+}
+.topo p{
+    font-size: 36px;
+}
+.miniTexto div{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.miniTexto div img{
+    height: 100%;
+}
+
+
+
+#etica .direita {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+#etica .direita div{
+    display: flex;
+}
+#etica .direita div img{
+    height: 50%;
+}
+
+
+#politica .direita{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+#politica .direita div{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+#politica .direita img{
+    width: 8vw;
+    height: 8vw;
+    border: 3px solid var(--color-secondary);
+}
+
+
+#filosofos{
+    display: block;
+}
+
+#filosofos h2{
+    font-size: 36px;
+}
+
+#filosofos h4{
+    font-size: 32px;
+}
+
+.campoColuna{
+    display: grid;
+    width: 100%;
+    height: auto;
+    max-height: 90%;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    gap: 40px;
+}
+.grupoTexto{
+    display: grid;
+    grid-template-columns: 10vw 38vw;
+    grid-template-rows: 10vw;
+    gap: 10px;
+}
+.campoColuna div img{
+    width: 100%;
+    height: 100%;
+    border: 3px solid var(--color-secondary);
+}
+.texto{
+    display: flex;
+    flex-direction: column;
+}
+
+.linha{
+    position: absolute;
+    display: none;
+    left: calc(50vw - 2px);
+    top: 140vh;
+    width: 4px;
+    height: 460vh;
+    background-color: var(--color-secondary);
+}
+
+footer{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+@media (max-width: 735px){
+    body{
+        height: auto;
+        overflow-y: auto;
+    }
+    header{
+        justify-content: center;
+        height: 75;
+        position: none;
+        height: 70px;
+    }
+    
+    main section{
+        flex-direction: column;
+        gap: 40px;
+        height: auto;
+        padding-inline: 5vw;
+    }
+    main section p {
+        font-size: 18px;
+    }
+    main section h2 {
+        font-size: 22px;
+    }
+    
+
+    .inicio{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .inicio div{
+        height: auto;
+        width: 100%;
+    }
+    .inicio h2{
+        font-size: 32px;
+    }
+    .inicio p{
+        font-size: 24px;
+        padding: 10px;
+    }
+
+    .inicio img{
+        width: 100vw;
+    }
+  
+    .ativicao{
+        display: none;
+    }
+
+
+    .esquerda{
+        width: 100%;
+        padding-right: 0;
+    }
+    .direita{
+        width: 100%;
+        padding-left: 0;
+    }
+    
+
+
+
+    #filosofia{
+        grid-template-columns: repeat(1, 1fr);
+        gap: 4vh;
+    }
+    #filosofia h2{
+        font-size: 28px;
+    }
+    #filosofia h4{
+        font-size: 28px;
+    }
+    .topo{
+        grid-column: 1;
+    }
+    .topo p{
+        font-size: 18px;
+    }
+    .miniTexto {
+        padding: 20px;
+    }
+    .miniTexto div img{
+        height: 40%;
+    }
+
+
+
+    #etica div{
+        gap: 20px;
+    }
+
+
+    #politica .direita{
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+    }
+    
+    #politica .direita div{
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+    #politica .direita img{
+        width: 30vw;
+        height: 30vw;
+        border: 2px solid var(--color-secondary);
+    }
+    
+    #epistemologia{
+        gap: 30px;
+    }
+    #epistemologia .esquerda{
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    #epistemologia div{
+        width: 100%;
+        align-items: center;
+        padding: 10px;
+    }
+
+    #epistemologia div img{
+        width: 100%;
+    }
+
+
+
+    #filosofos{
+        display: block;
+    }
+    
+    #filosofos h2{
+        font-size: 36px;
+    }
+    
+    #filosofos h4{
+        font-size: 32px;
+    }
+    
+    .campoColuna{
+        max-height: auto;
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .grupoTexto{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        padding: 20px;
+        gap: 10px;
+    }
+    .campoColuna div img{
+        width: 30vw;
+        height: 30vw;
+        border: 3px solid var(--color-secondary);
+    }
+    .texto{
+        display: flex;
+        flex-direction: column;
+    }
+
+}

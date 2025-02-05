@@ -1,0 +1,24 @@
+@media (max-width:470px){
+    body{
+        height: auto;
+        width: 100vw;
+        overflow-x: hidden;
+        overflow-y: scroll;
+    }
+    .logo{
+        width: 150px;
+    }
+    main{
+        
+        flex-direction: column;
+    }
+    .entregas{
+        height: 450px;
+    }
+
+    .brinquedo{
+        top: 10%;
+        left: -20%;
+        transform: scale(0.7);
+    }
+}
