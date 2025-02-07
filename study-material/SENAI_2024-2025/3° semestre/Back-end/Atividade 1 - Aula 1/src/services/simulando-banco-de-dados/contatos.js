@@ -568,6 +568,6 @@ const contatos = { "whats-users" :
                             }
                           ]
                         }
-module.exports = {
+module.exports ={
   contatos
 }

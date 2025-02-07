@@ -1,4 +1,4 @@
-const arrContatos = require('./simulando-banco-de-dados/contatos')
+const arrContatos = require('../simulando-banco-de-dados/contatos')
 const arrUsers = arrContatos.contatos['whats-users']
 
 function getListAllUserPersonalData(number){
@@ -121,9 +121,9 @@ function getFilterKeywordResearch(number, name, word){
 
     return status ? objetoRetorno : status
 }
-// console.log(getFilterKeywordResearch("11987876567", "Ana Maria", "You"))
+console.log(getFilterKeywordResearch("11987876567", "Ana Maria", "You"))
 
-function fetFilterAll(number, name, word){
+function getFilterAll(number, name, word){
     let retorno = false
     if(number && name && word){
         retorno = getFilterKeywordResearch(number, name, word)
@@ -139,5 +139,5 @@ module.exports = {
     getListAllUserPersonalData,
     getListContactDetailsForEachUser,
     getListUserProfileAccountData,
-    fetFilterAll
+    getFilterAll
 }

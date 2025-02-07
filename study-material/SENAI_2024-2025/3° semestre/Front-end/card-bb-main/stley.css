@@ -1,0 +1,135 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul, ol, li{
+    list-style: none;
+}
+
+button{
+    border: none;
+    cursor: pointer;
+}
+input{
+    border: none;
+    outline: none;
+}
+
+:root{
+    --cor-houver: br;
+    --cor-card: red;
+}
+
+
+body{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+
+header{
+    width: 100%;
+    height: 10vh;
+}
+
+.listaMaterias{
+    padding: 16px;
+    display: flex;
+    justify-content: end;
+    gap: 16px;
+    background-color: black;
+}
+
+.listaMaterias li{
+    display: flex;
+    align-items: center;
+    color: aliceblue;
+    padding: 2px 4px;
+    border-radius: 8px;
+    transition: 0.5s;
+}
+
+.listaMaterias li:hover{
+    background-color: var(--cor-houver);
+    transform: scale(1.1);
+}
+
+.listaMaterias li img{
+    height: 16px;
+}
+
+
+
+main{
+    display: flex;
+    flex: 1;
+    width: 100vw;
+}
+
+.card{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10%;
+    width: 250px;
+    height: 400px;
+    border-radius: 12px;
+    background-color: var(--cor-card);
+    overflow: hidden;
+    transition: 0.5s;
+    box-shadow: 2px 2px 2px black;
+}
+
+
+.conteudo{
+    height: 85%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5% 5%;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    background-color: aliceblue;
+}
+
+.conteudo h2{
+    color: var(--cor-card);
+}
+
+.conteudo span{
+    font-size: 12px;
+    text-align: center;
+}
+
+.conteudo img{
+    width: 100%;
+    border-radius: 10px;
+}
+
+.conteudo div{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.card button{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 15%;
+    color: black;
+    background-color: gold;
+}
