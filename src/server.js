@@ -7,7 +7,7 @@ const app = express()
 // Middlewares
 app.use(cors())
 app.use(bodyParser.json())
-app.use('/static', express.static('./study-material/'))
+app.use('/static', express.static('../study-material/'))
 
 // Rotas
 // const folderRoutes = require("./routes/folderRoutes")
