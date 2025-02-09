@@ -1,14 +1,14 @@
-const pathUtils = require('../utils/pathUtils')
+const SearchService = require('../services/SearchService')
 
 
-function getSearch (request, response) {
+function getSearchAll (request, response) {
     let Path = request.query.pa
     let File = request.query.fi
     let Folder = request.query.fo
     let Exception = request.query.e
     let Name = request.query.name
     // console.log(Folder) 
-    let dados = pathUtils.searchWith(Path, File, Folder, Exception, Name)
+    let dados = SearchService.searchWith(Path, File, Folder, Exception, Name)
 
     if(dados){
         response.status(200)
@@ -21,5 +21,5 @@ function getSearch (request, response) {
 
 
 module.exports = {
-    getSearch
+    getSearchAll
 }

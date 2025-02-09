@@ -10,13 +10,13 @@ app.use(bodyParser.json())
 app.use('/static', express.static('./study-material/'))
 
 // Rotas
-const folderRoutes = require("./routes/folderRoutes")
-const fileRoutes = require("./routes/fileRoutes")
-const foldersAndFiles = require('./routes/foldersAndFilesRoutes')
+// const folderRoutes = require("./routes/folderRoutes")
+// const fileRoutes = require("./routes/fileRoutes")
+const searchRoutes = require('./routes/searchRoutes')
 
-app.use("/v1/folders", folderRoutes)
-app.use("/v1/files", fileRoutes)
-app.use("/v1/all", foldersAndFiles)
+// app.use("/v1/folders", folderRoutes)
+// app.use("/v1/files", fileRoutes)
+app.use("/v1/search", searchRoutes)
 
 // Inicia o servidor
 const PORT = process.env.PORT || 8080
