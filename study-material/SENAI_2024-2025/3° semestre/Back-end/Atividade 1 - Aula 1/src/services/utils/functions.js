@@ -121,7 +121,7 @@ function getFilterKeywordResearch(number, name, word){
 
     return status ? objetoRetorno : status
 }
-console.log(getFilterKeywordResearch("11987876567", "Ana Maria", "You"))
+// console.log(getFilterKeywordResearch("11987876567", "Ana Maria", "You"))
 
 function getFilterAll(number, name, word){
     let retorno = false
