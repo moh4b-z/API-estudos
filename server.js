@@ -8,14 +8,16 @@ const app = express()
 app.use(cors())
 app.use(bodyParser.json())
 const path = require('path')
-app.use('/static', express.static(path.resolve(__dirname, './study-material')))
+app.use('/static', express.static('./study-material/'))
+
 
 
 
 // Rotas
 // const folderRoutes = require("./routes/folderRoutes")
 // const fileRoutes = require("./routes/fileRoutes")
-const searchRoutes = require('./routes/searchRoutes')
+const searchRoutes = require('./src/routes/searchRoutes')
+const { log } = require("console")
 
 // app.use("/v1/folders", folderRoutes)
 // app.use("/v1/files", fileRoutes)
