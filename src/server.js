@@ -8,7 +8,7 @@ const app = express()
 app.use(cors())
 app.use(bodyParser.json())
 const path = require('path')
-app.use('/static', express.static(path.resolve(__dirname, '../study-material')))
+app.use('/static', express.static(path.resolve(__dirname, './study-material')))
 
 
 
