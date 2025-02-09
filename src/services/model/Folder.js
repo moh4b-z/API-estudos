@@ -10,7 +10,7 @@ class Folder{
 
     #pathTransformedLink(path) {
         let normalizedPath = path.replace(/\\/g, "/") // Converte "\" para "/"
-        let link = normalizedPath.replace("../study-material/", urlHTML).replace("study-material/", urlHTML)
+        let link = normalizedPath.replace("./study-material/", urlHTML).replace("study-material/", urlHTML)
         return link !== normalizedPath ? link : false
     }
     #fileExtension(pathFile) {

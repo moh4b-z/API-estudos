@@ -1,6 +1,6 @@
 const Folders = require('./model/Folder')
 
-const FolderRoot = '../study-material/'
+const FolderRoot = './study-material/'
 
 function searchWith(Path, File, Folder, Exception, Name){
     let path = Path ? Path : FolderRoot
