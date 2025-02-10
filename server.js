@@ -17,7 +17,6 @@ app.use('/static', express.static('./study-material/'))
 // const folderRoutes = require("./routes/folderRoutes")
 // const fileRoutes = require("./routes/fileRoutes")
 const searchRoutes = require('./src/routes/searchRoutes')
-const { log } = require("console")
 
 // app.use("/v1/folders", folderRoutes)
 // app.use("/v1/files", fileRoutes)

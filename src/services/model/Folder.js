@@ -27,7 +27,7 @@ class Folder{
         return items
     }
     
-    singleFolderSearch(nameFolder, exception){
+    #singleFolderSearch(nameFolder, exception){
         let name = nameFolder
         let objectReturn = false
         let items = this.inside()
@@ -55,7 +55,7 @@ class Folder{
         }
         return objectReturn
     }
-    searchAllFolder(nameFolder, exception){
+    #searchAllFolder(nameFolder, exception){
         let name = nameFolder
         let objectReturn = {names: name, paths: []}
         let items = this.inside()
@@ -87,9 +87,7 @@ class Folder{
     }
     
 
-
-
-    singleFileSearch(nameFile, exception){
+    #singleFileSearch(nameFile, exception){
         let name = nameFile
         let objectReturn = false
         let items = this.inside()
@@ -119,7 +117,7 @@ class Folder{
         }
         return objectReturn
     }
-    searchAllFiles(nameFile, exception){
+    #searchAllFiles(nameFile, exception){
         let name = nameFile
         let objectReturn = {names: name, paths: []}
         let items = this.inside()
@@ -197,7 +195,7 @@ class Folder{
                     name: Dirent.name,
                     path: filePath,
                     extname: ext,
-                    link: ext === ".html" ? this.#pathTransformedLink(fullPath) : false,
+                    link: this.#pathTransformedLink(fullPath),
                     tipe: "file"
                 }
                 // console.log(filePath)
@@ -237,7 +235,7 @@ class Folder{
                     name: Dirent.name,
                     path: fullPath,
                     extname: ext,
-                    link: ext == ".html" ? this.#pathTransformedLink(fullPath) : false,
+                    link: this.#pathTransformedLink(fullPath),
                     tipe: "file"
                 }
     
@@ -281,6 +279,38 @@ class Folder{
             objectReturn = this.#searchAllFilesWith(name, exception)
         }else if(folder){
             objectReturn = this.#searchAllFolderWith(name, exception)
+        }else{
+            objectReturn = false
+        }
+        return objectReturn
+    }
+
+    singleSearch(File, Folder, Exception, Name){
+        let file = File
+        let folder =  Folder
+        let exception = Exception
+        let name = Name
+        let objectReturn = false
+        if(file){
+            objectReturn = this.#singleFileSearch(name, exception)
+        }else if(folder){
+            objectReturn = this.#singleFolderSearch(name, exception)
+        }else{
+            objectReturn = false
+        }
+        return objectReturn
+    }
+
+    searchAll(File, Folder, Exception, Name){
+        let file = File
+        let folder =  Folder
+        let exception = Exception
+        let name = Name
+        let objectReturn = false
+        if(file){
+            objectReturn = this.#searchAllFiles(name, exception)
+        }else if(folder){
+            objectReturn = this.#searchAllFolder(name, exception)
         }else{
             objectReturn = false
         }
