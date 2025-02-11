@@ -100,12 +100,16 @@ main{
     background-color: var(--cor-card);
     overflow: hidden;
     transition: 0.5s;
-    box-shadow: 2px 2px 2px black;
+    box-shadow: 2px 2px 6px black;
+}
+.card:hover{
+    transform: scale(1.05);
+    box-shadow: 4px 3px 8px black;
 }
 
-
 .conteudo{
-    height: 85%;
+    min-height: 90%;
+    height: 90%;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -158,5 +162,9 @@ main{
     height: 15%;
     color: black;
     font-weight: bold;
-    background-color: gold;
+    background-color: #ffd700;
+}
+
+.card button:hover{
+    background-color: #dfbe00;
 }
