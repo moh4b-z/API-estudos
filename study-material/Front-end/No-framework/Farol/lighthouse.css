@@ -1,0 +1,61 @@
+/* lighthouse.css */
+:root {
+    --mainBlack: #141912;
+    --mainGrey: #252b21;
+    --lighthouseLight: #f9f04c;
+    --glowLightTiming: 6s;
+  }
+  
+  .light-house {
+    position: absolute;
+    bottom: 40px;
+    left: 46vw;
+    z-index: 10; /* Garante que o farol fique acima do oceano */
+  }
+  
+  /* Luz do farol */
+  .light {
+    background: var(--lighthouseLight);
+    border-radius: 20px 20px 0 0;
+    box-shadow: 0 0 22px rgba(255, 235, 59, 1), inset 0 0 3px 1px rgba(252, 250, 185, 0.44);
+  }
+  
+  .glow {
+    position: absolute;
+    height: 22px;
+    width: 22px;
+    background: radial-gradient(ellipse at center, #fbfae1 0%, #fffb6c 100%);
+    border-radius: 50%;
+    box-shadow: 0 0 22px rgba(255, 235, 59, 1), inset 0 0 3px 1px rgba(252, 250, 185, 0.44);
+    animation: glowing-ball var(--glowLightTiming) infinite linear;
+    top: 28px; /* Ajuste a posição vertical da bola de luz */
+    left: -8px; /* Ajuste a posição horizontal da bola de luz */
+  }
+  
+  @keyframes glowing-ball {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+  }
+  
+  /* Estrutura do farol */
+  .top-triangle {
+    position: relative;
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 23px solid transparent;
+    border-bottom: 18px solid var(--mainBlack);
+    opacity: 0.98;
+  }
+  
+  .top-triangle-circle {
+    position: relative;
+    width: 8px;
+    height: 8px;
+    background: var(--mainBlack);
+    border-radius: 50%;
+    top: -17px;
+    left: -2.5px;
+  }
+  
+  /* Adicione mais estilos para o farol conforme necessário */

@@ -1,0 +1,136 @@
+/* Variáveis CSS */
+:root {
+    --mainBlack: #141912;
+    --mainGrey: #252b21;
+    --lighthouseLight: #f9f04c;
+    --glowLightTiming: 6s;
+    --lightTiming: 6s;
+    --oceanLayer: 4s;
+  }
+  
+  /* Reset e estilos globais */
+  body {
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+  }
+  
+  .container {
+    position: absolute;
+    height: 100vh;
+    width: 100%;
+  }
+  
+  /* Céu e estrelas */
+  .sky {
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    background: radial-gradient(ellipse at center, #c5cfb7 0%, #082d47 100%);
+  }
+  
+  .stars {
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80%;
+    z-index: -1;
+  }
+  
+  .star {
+    position: absolute;
+    background: rgba(241, 241, 241, 1);
+    border-radius: 50%;
+    animation: twinkle 2s infinite ease-in-out;
+  }
+  
+  @keyframes twinkle {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+  
+  /* Farol */
+  .light-house {
+    position: absolute;
+    bottom: 40px;
+    left: 46vw;
+  }
+  
+  .light {
+    background: var(--lighthouseLight);
+    border-radius: 20px 20px 0 0;
+    box-shadow: 0 0 22px rgba(255, 235, 59, 1), inset 0 0 3px 1px rgba(252, 250, 185, 0.44);
+  }
+  
+  .glow {
+    position: absolute;
+    height: 22px;
+    width: 22px;
+    background: radial-gradient(ellipse at center, #fbfae1 0%, #fffb6c 100%);
+    border-radius: 50%;
+    box-shadow: 0 0 22px rgba(255, 235, 59, 1), inset 0 0 3px 1px rgba(252, 250, 185, 0.44);
+    animation: glowing-ball var(--lightTiming) infinite linear;
+  }
+  
+  @keyframes glowing-ball {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+  }
+  
+  /* Oceano */
+  .bottom {
+    position: absolute;
+    height: 25vh;
+    width: 100%;
+    left: 0;
+    top: 75%;
+  }
+  
+  .ocean-layer {
+    position: absolute;
+    width: 100%;
+    background-attachment: fixed;
+    animation-duration: var(--oceanLayer);
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+  
+  .top-tier-1 {
+    height: 3vh;
+    top: 0;
+    background: radial-gradient(ellipse at center, #c6d1bf 0%, #235161 100%);
+    animation-name: top-tier-1;
+  }
+  
+  @keyframes top-tier-1 {
+    0%, 100% { height: 3vh; }
+    50% { height: 5vh; }
+  }
+  
+  /* Outras camadas do oceano seguem o mesmo padrão */
+  
+  /* Rodapé */
+  #made-by-cameron {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-size: 1.4rem;
+    color: #fff;
+    font-family: monospace;
+  }
+  
+  #made-by-cameron a {
+    color: #fff;
+  }
+  
+  .made-by-author {
+    position: absolute;
+    right: 2%;
+    top: 23%;
+  }
+  
+  .made-by-twitter {
+    position: absolute;
+    left: 2%;
+    top: 23%;
+  }

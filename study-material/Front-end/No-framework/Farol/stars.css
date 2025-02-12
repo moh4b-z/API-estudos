@@ -1,0 +1,54 @@
+/* stars.css */
+:root {
+    --starColor: rgba(241, 241, 241, 1);
+  }
+  
+  .sky {
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    background: radial-gradient(ellipse at center, #c5cfb7 0%, #082d47 100%);
+    z-index: -2; /* Garante que o céu fique atrás de tudo */
+  }
+  
+  .stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80%;
+    z-index: -1;
+  }
+  
+  .star {
+    position: absolute;
+    background: var(--starColor);
+    border-radius: 50%;
+    animation: twinkle 2s infinite ease-in-out;
+  }
+  
+  /* Geração dinâmica das estrelas (via JavaScript) */
+  @keyframes twinkle {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+  
+  /* Estrelas brilhantes */
+  .twinkle-stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    z-index: -1;
+  }
+  
+  .twinkle-star {
+    position: absolute;
+    animation: twinkle-stars 5s infinite ease;
+  }
+  
+  @keyframes twinkle-stars {
+    0%, 100% { opacity: 0.6; transform: scale(1); }
+    50% { opacity: 0.3; transform: scale(1.3); }
+  }

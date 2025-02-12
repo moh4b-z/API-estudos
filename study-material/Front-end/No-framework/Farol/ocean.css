@@ -1,0 +1,82 @@
+/* ocean.css */
+:root {
+    --oceanLayer: 4s;
+  }
+  
+  .bottom {
+    position: absolute;
+    height: 25vh;
+    width: 100%;
+    left: 0;
+    top: 75%;
+    z-index: 5; /* Garante que o oceano fique acima do céu, mas abaixo do farol */
+  }
+  
+  .ocean-layer {
+    position: absolute;
+    width: 100%;
+    background-attachment: fixed;
+    animation-duration: var(--oceanLayer);
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+  
+  .top-tier-1 {
+    height: 3vh;
+    top: 0;
+    background: radial-gradient(ellipse at center, #c6d1bf 0%, #235161 100%);
+    animation-name: top-tier-1;
+  }
+  
+  @keyframes top-tier-1 {
+    0%, 100% { height: 3vh; }
+    50% { height: 5vh; }
+  }
+  
+  .top-tier-2 {
+    height: 3vh;
+    top: 3vh;
+    background: radial-gradient(ellipse at center, #93bfa8 0%, #123845 100%);
+    animation-name: top-tier-2;
+  }
+  
+  @keyframes top-tier-2 {
+    0%, 100% { height: 3vh; top: 3vh; }
+    50% { height: 5vh; top: 4vh; }
+  }
+  
+  .top-tier-3 {
+    height: 5vh;
+    top: 6vh;
+    background: radial-gradient(ellipse at center, #368981 0%, #07212e 100%);
+    animation-name: top-tier-3;
+  }
+  
+  @keyframes top-tier-3 {
+    0%, 100% { height: 3vh; top: 6vh; }
+    50% { height: 5vh; top: 8vh; }
+  }
+  
+  .top-tier-4 {
+    height: 7vh;
+    top: 11vh;
+    background: radial-gradient(ellipse at center, #093d4a 0%, #01101b 100%);
+    animation-name: top-tier-4;
+  }
+  
+  @keyframes top-tier-4 {
+    0%, 100% { height: 7vh; top: 9vh; }
+    50% { height: 9vh; top: 11vh; }
+  }
+  
+  .top-tier-5 {
+    height: 7vh;
+    top: 18vh;
+    background: radial-gradient(ellipse at center, #001624 0%, #00030a 100%);
+    animation-name: top-tier-5;
+  }
+  
+  @keyframes top-tier-5 {
+    0%, 100% { height: 12vh; top: 14vh; }
+    50% { height: 12vh; top: 17vh; }
+  }
