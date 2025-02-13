@@ -20,7 +20,7 @@ export const produtos = {
             "tag": "Camisa"
         },
         {
-            "name": "Calca Jeans Flare",
+            "name": "Calça Jeans Flare",
             "description":"Calça Jeans Flare Comfort Emma Fiorezi Azul Jeans",
             "image": "calca-jeans-flare.webp",
             "price": 45.50,
@@ -29,7 +29,7 @@ export const produtos = {
             "tag": "Calca"
         },
         {
-            "name": "Calca Pantola",
+            "name": "Calça Pantola",
             "description":"Calça Pantalona em Linho",
             "image": "calca-pantola.png",
             "price": 55.40,
@@ -41,7 +41,7 @@ export const produtos = {
             "name": "Tênis Esportivo",
             "description":"Tênis Esportivo Masculino Ultra Light Assis Ranster",
             "image": "tenisEM.png",
-            "price": 0.00,
+            "price": 50.00,
             "size": ["M","L","XL"],
             "color": "000000",
             "tag": "Tenis"
