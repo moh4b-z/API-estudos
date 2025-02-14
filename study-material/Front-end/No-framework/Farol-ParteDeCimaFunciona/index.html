@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,24 +7,42 @@
     <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
+    <!-- Contêiner principal da cena -->
     <div id="scene">
+        <!-- Céu e estrelas -->
         <div class="sky">
+            <!-- Camada de estrelas com efeito de parallax -->
             <div class="stars layer" data-depth="0.3" id="stars-container"></div>
         </div>
+
+        <!-- Contêiner do farol e do oceano -->
         <div class="container">
+            <!-- Parte superior da cena (farol) -->
             <div class="top layer" data-depth="0.1">
+                <!-- Estrutura do farol -->
                 <div class="light-house">
+                    <!-- Triângulo superior do farol -->
                     <div class="top-triangle">
+                        <!-- Detalhes do triângulo (círculos e luz) -->
                         <div class="top-triangle-circle-top"></div>
                         <div class="top-triangle-circle-middle"></div>
                         <div class="top-triangle-circle"></div>
+
+                        <!-- Efeito de brilho ao redor do farol -->
                         <div class="glow layer" data-depth="0.01"></div>
+
+                        <!-- Contêiner das luzes brilhantes do farol -->
                         <div class="shining-lights-container">
+                            <!-- Luz brilhante à esquerda -->
                             <div class="shining-light-left"></div>
+                            <!-- Luz brilhante à direita -->
                             <div class="shining-light-right"></div>
                         </div>
-                        <div class="top-ledge"></div>
+
+                        <!-- Detalhes estruturais do farol -->
+                        <div class="top-ledge"></div> <!-- Parte superior do farol -->
                         <div class="top-bars">
+                            <!-- Barras superiores do farol -->
                             <div class="top-bar-1 topbar"></div>
                             <div class="top-bar-2 topbar"></div>
                             <div class="top-bar-3 topbar"></div>
@@ -32,6 +50,8 @@
                             <div class="top-bar-5 topbar"></div>
                             <div class="top-bar-6 topbar"></div>
                         </div>
+
+                        <!-- Grades superiores do farol -->
                         <div class="top-railings">
                             <div class="top-railing-1 railing"></div>
                             <div class="top-railing-2 railing"></div>
@@ -40,10 +60,13 @@
                             <div class="top-railing-5 railing"></div>
                             <div class="top-railing-6 railing"></div>
                         </div>
-                        <div class="mid-ledge"></div>
+
+                        <!-- Detalhes estruturais do meio do farol -->
+                        <div class="mid-ledge"></div> <!-- Parte do meio do farol -->
                         <div class="mid-railings">
-                            <div class="overlay"></div>
+                            <div class="overlay"></div> <!-- Sobreposição -->
                             <div class="mid-railings-rail">
+                                <!-- Grades do meio do farol -->
                                 <div class="mid-rail mid-rail-1"></div>
                                 <div class="mid-rail mid-rail-2"></div>
                                 <div class="mid-rail mid-rail-3"></div>
@@ -54,8 +77,12 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Parte inferior da cena (oceano) -->
             <div class="bottom">
+                <!-- Camadas do oceano -->
                 <div class="ocean">
+                    <!-- Camadas do oceano com gradientes e animações -->
                     <div class="top-tier-1 ocean-layer"></div>
                     <div class="top-tier-2 ocean-layer"></div>
                     <div class="top-tier-3 ocean-layer"></div>
@@ -65,8 +92,9 @@
             </div>
         </div>
     </div>
+
+    <!-- Scripts para efeitos de parallax e interatividade -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
     <script src="script.js"></script>
-
 </body>
 </html>
