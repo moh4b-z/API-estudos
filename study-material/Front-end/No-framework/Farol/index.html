@@ -12,7 +12,12 @@
         <!-- Céu e estrelas -->
         <div class="sky">
             <!-- Camada de estrelas com efeito de parallax -->
-            <div class="stars layer" data-depth="0.3" id="stars-container"></div>
+            <div class="stars layer" data-depth="0.3">
+                <!-- Estrelas geradas dinamicamente -->
+                <div class="star"></div>
+                <div class="star"></div>
+                <!-- Repetir até 80 estrelas -->
+            </div>
         </div>
 
         <!-- Contêiner do farol e do oceano -->
@@ -73,7 +78,65 @@
                                 <div class="mid-rail mid-rail-5"></div>
                                 <div class="mid-rail mid-rail-6"></div>
                             </div>
+                            <!-- Grades do meio à esquerda e à direita -->
+                            <div class="left-mid-railings"></div>
+                            <div class="right-mid-railings"></div>
                         </div>
+                    </div>
+
+                    <!-- Painel com rotação 3D -->
+                    <div class="panel-container" id="rotate-x">
+                        <div class="left-mid-roof"></div>
+                        <div class="left-mid-roof-2"></div>
+                        <div class="panel"></div>
+                    </div>
+
+                    <!-- Luzes do farol -->
+                    <div class="light"></div>
+
+                    <!-- Estrutura direita do farol -->
+                    <div class="right-attachment">
+                        <div class="right-roof"></div>
+                        <div class="right-building"></div>
+                    </div>
+
+                    <!-- Luzes do farol -->
+                    <div class="lighthouse-lights">
+                        <div class="light-right-top light"></div>
+                        <div class="light-left-middle light"></div>
+                    </div>
+
+                    <!-- Luzes inferiores do farol -->
+                    <div class="lighthouse-bottom-lights">
+                        <div class="light-right-bottom light"></div>
+                        <div class="light-left-bottom light"></div>
+                    </div>
+
+                    <!-- Rochas ao fundo -->
+                    <div class="back-rocks">
+                        <div class="back-rock-1"></div>
+                        <div class="back-rock-2"></div>
+                        <div class="back-rock-3"></div>
+                    </div>
+
+                    <!-- Rochas na frente -->
+                    <div class="front-rocks">
+                        <div class="front-rock-1"></div>
+                        <div class="satellite"></div>
+                        <div class="front-rock-2"></div>
+                        <div class="front-rock-3"></div>
+                    </div>
+
+                    <!-- Estrelas cadentes -->
+                    <div class="shooting-stars"></div>
+
+                    <!-- Brilho ao redor do farol -->
+                    <div class="glow-shine-container layer" data-depth="0.1">
+                        <div class="glow-shine-5 shine-circle"></div>
+                        <div class="glow-shine-4 shine-circle"></div>
+                        <div class="glow-shine-3 shine-circle"></div>
+                        <div class="glow-shine-1 shine-circle"></div>
+                        <div class="glow-shine-2 shine-circle"></div>
                     </div>
                 </div>
             </div>
