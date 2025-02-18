@@ -8,19 +8,17 @@
 </head>
 <body>
     <!-- Contêiner principal da cena -->
-    <div id="scene">
+    <div id="light">
         <!-- Efeito de brilho ao redor do farol -->
-        <div class="glow" data-depth="0.01"></div>
+        <div class="dentro" id="glow" data-depth="0.01"></div>
 
         <!-- Contêiner das luzes brilhantes do farol -->
-        <div class="shining-lights-container">
-
+        <div class="dentro" id="shining-lights-container">
             <div class="shining-light" id="shining-light-left"></div>
-
             <div class="shining-light" id="shining-light-right"></div>
         </div>
             <!-- Brilho ao redor do farol -->
-        <div class="glow-shine-container" data-depth="0.1">
+        <div class="dentro" id="glow-shine-container" data-depth="0.1">
             <div class="glow-shine" id="glow-shine-5"></div>
             <div class="glow-shine" id="glow-shine-4"></div>
             <div class="glow-shine" id="glow-shine-3"></div>
