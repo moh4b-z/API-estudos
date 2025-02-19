@@ -862,30 +862,3 @@ body {
     height: 12vh;
   }
 }
-
-#made-by-cameron {
-  position: fixed;
-  bottom: 0%;
-  height: 5vh;
-  width: 100%;
-  font-size: 1.4rem;
-  color: #fff;
-  font-family: monospace;
-}
-
-#made-by-cameron a {
-  color: #fff;
-}
-
-.made-by-author {
-  position: absolute;
-  right: 2%;
-  top: 23%;
-}
-
-.made-by-twitter {
-  position: absolute;
-  left: 2%;
-  top: 23%;
-}
-
