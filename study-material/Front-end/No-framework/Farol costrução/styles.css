@@ -18,18 +18,11 @@ body {
   overflow: hidden;
 }
 
-.container {
+.light-house {
   position: absolute;
-  height: 100vh;
-  width: 100%;
+  bottom: 40px;
+  left: 46vw;
 }
-
-.top {
-  position: relative;
-  height: 75vh;
-  width: 100%;
-}
-
 
 .right-attachment {
   position: absolute;
@@ -50,98 +43,244 @@ body {
   transform: skew(50deg);
 }
 
-.satellite {
-  position: absolute;
-  height: 60px;
-  width: 2px;
-  background: var(--mainBlack);
-  left: 90px;
-  top: -40px;
+/* Triângulo superior do farol */
+.top-triangle {
+  padding-top: 7px;
+  position: relative;
+  height: 0px;
+  width: 3px;
+  bottom: 262px;
+  left: 3px;
+  background: rgba(0, 128, 0, 0);
+  border-left: 20px rgba(0, 128, 0, 0) solid;
+  border-right: 23px rgba(0, 128, 0, 0) solid;
+  border-bottom: 18px #141b11 solid;
+  border-top: 3px rgba(0, 128, 0, 0) solid;
+  border-bottom-right-radius: 28%;
+  border-bottom-left-radius: 28%;
+  opacity: 0.98;
 }
 
-.back-rocks {
-  position: absolute;
-  width: 480px;
-  height: 50px;
-  left: -130px;
-  bottom: -47px;
-}
+  /* Detalhes do triângulo (círculos e luz) */
 
-.back-rock-1 {
-  position: absolute;
-  width: 68px;
-  height: 60px;
-  background: var(--mainGrey);
-  left: 0px;
-  bottom: -30px;
-  border-radius: 100%;
-}
+  .top-triangle-circle-top {
+    position: relative;
+    height: 8px;
+    width: 6px;
+    bottom: 3px;
+    left: -1.5px;
+    background: var(--mainBlack);
+  }
 
-.back-rock-2 {
-  position: absolute;
-  width: 70px;
-  height: 70px;
-  background: var(--mainGrey);
-  left: 68%;
-  bottom: -30px;
-  border-radius: 100%;
-}
+  .top-triangle-circle-middle {
+    position: absolute;
+    height: 2px;
+    width: 9.5px;
+    background: var(--mainBlack);
+    bottom: 0px;
+    left: -3px;
+  }
 
-.back-rock-3 {
-  position: absolute;
-  width: 55px;
-  height: 55px;
-  background: var(--mainGrey);
-  left: 88%;
-  bottom: -30px;
-  border-radius: 100%;
-}
+  .top-triangle-circle {
+    position: relative;
+    height: 8px;
+    width: 8px;
+    bottom: 17px;
+    left: -2.5px;
+    background: var(--mainBlack);
+    border-radius: 100%;
+  }
 
-.front-rocks {
-  position: absolute;
-  bottom: -90px;
-  left: -145px;
-  height: 100px;
-  width: 350px;
-}
+  
+  /* Detalhes estruturais do farol  */
 
-.front-rock-1 {
-  position: absolute;
-  left: 50px;
-  height: 150px;
-  width: 180px;
-  background: var(--mainBlack);
-  border-radius: 100%;
-}
 
-.front-rock-2 {
-  position: absolute;
-  bottom: 0px;
-  left: 240px;
-  height: 100px;
-  width: 150px;
-  background: var(--mainBlack);
-  border-radius: 100%;
-}
+  /* Parte superior do farol */
+  .top-ledge {
+    position: absolute;
+    height: 8px;
+    width: 50px;
+    top: 55px;
+    left: -23px;
+    background-color: var(--mainBlack);
+    border-bottom-right-radius: 100%;
+    border-bottom-left-radius: 100%;
+  }
 
-.front-rock-3 {
-  position: absolute;
-  bottom: -22px;
-  left: 365px;
-  height: 100px;
-  width: 90px;
-  background: var(--mainBlack);
-  border-radius: 100%;
-}
-.overlay {
-  position: absolute;
-  height: 40px;
-  width: 42px;
-  background: #141b11;
-  top: 54px;
-  left: -19px;
-}
+  .top-bars {
+    opacity: 0.8;
+  }
+  /* Barras superiores do farol */
+  .topbar {
+    position: absolute;
+    height: 120px;
+    width: 2px;
+    background: var(--mainBlack);
+    opacity: 0.8;
+  }
 
+  #top-bar-1 {
+    left: -14px;
+  }
+
+  #top-bar-2 {
+    left: -8px;
+  }
+
+  #top-bar-3 {
+    left: -1px;
+  }
+
+  #top-bar-4 {
+    left: 5.5px;
+  }
+
+  #top-bar-5 {
+    left: 12px;
+  }
+
+  #top-bar-6 {
+    left: 18px;
+  }
+
+  /* *** ---- *** */
+
+  /* Grades superiores do farol */
+  .top-railings {
+    position: absolute;
+    height: 8px;
+    width: 38px;
+    top: 45px;
+    left: -19px;
+    border: 2px solid #141b11;
+    border-radius: 2px;
+    opacity: 0.8;
+  }
+
+  .railing {
+    position: absolute;
+    height: 10px;
+    width: 2px;
+    background: var(--mainBlack);
+    top: -1px;
+  }
+
+  #top-railing-1 {
+    left: 6px;
+  }
+
+  #top-railing-2 {
+    left: 12px;
+  }
+
+  #top-railing-3 {
+    left: 19px;
+  }
+
+  #top-railing-4 {
+    left: 25px;
+  }
+
+  #top-railing-5 {
+    left: 32px;
+  }
+
+  #top-railing-6 {
+    left: 35px;
+  }
+  /* *** ---- *** */
+  
+  /* Detalhes estruturais do meio do farol */
+
+  /* Parte do meio do farol */
+  .mid-ledge {
+    position: absolute;
+    height: 8px;
+    width: 52px;
+    top: 100px;
+    left: -24px;
+    background-color: var(--mainBlack);
+    border-bottom-right-radius: 100%;
+    border-bottom-left-radius: 100%;
+  }
+
+  .mid-railings
+
+  /* Sobreposição */
+  .overlay {
+    position: absolute;
+    height: 40px;
+    width: 42px;
+    background: #141b11;
+    top: 54px;
+    left: -19px;
+  }
+
+  .mid-railings-rail {
+    position: absolute;
+    height: 10px;
+    width: 55px;
+    top: 72px;
+    left: -26px;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    border: 1px solid var(--mainBlack);
+  }
+
+    .mid-rail {
+      position: absolute;
+      width: 1px;
+      height: 10px;
+      background: var(--mainBlack);
+    }
+
+    .mid-rail-1 {
+      left: 2px;
+    }
+
+    .mid-rail-2 {
+      left: 4px;
+    }
+
+    .mid-rail-3 {
+      left: 6px;
+    }
+
+    .mid-rail-5 {
+      left: 49px;
+    }
+
+    .mid-rail-6 {
+      left: 52px;
+    }
+
+  /* Grades do meio à esquerda e à direita */
+  .left-mid-railings {
+    position: absolute;
+    top: 80px;
+    left: -28px;
+    border-left: 26px rgba(0, 128, 0, 0) solid;
+    border-right: 15px rgba(0, 128, 0, 0) solid;
+    border-bottom: 15px #141b11 solid;
+    border-top: 0px rgba(0, 128, 0, 0) solid;
+    border-bottom-right-radius: 0%;
+    border-bottom-left-radius: 100%;
+  }
+
+  .right-mid-railings {
+    position: absolute;
+    top: 80px;
+    left: -8px;
+    border-left: 26px rgba(0, 128, 0, 0) solid;
+    border-right: 15px rgba(0, 128, 0, 0) solid;
+    border-bottom: 15px #141b11 solid;
+    border-top: 0px rgba(0, 128, 0, 0) solid;
+    border-bottom-right-radius: 100%;
+    border-bottom-left-radius: 0%;
+  }
+/* *** ---- *** */
+
+/* Painel com rotação 3D */
 .panel-container {
   width: 100%;
   height: 307px;
@@ -181,156 +320,10 @@ body {
   margin: auto;
   transform: perspective(329px) rotateX(44deg) translate3d(0px, 0px, 0px);
 }
+/* *** ---- *** */
 
-.top-triangle {
-  padding-top: 7px;
-  position: relative;
-  height: 0px;
-  width: 3px;
-  bottom: 262px;
-  left: 3px;
-  background: rgba(0, 128, 0, 0);
-  border-left: 20px rgba(0, 128, 0, 0) solid;
-  border-right: 23px rgba(0, 128, 0, 0) solid;
-  border-bottom: 18px #141b11 solid;
-  border-top: 3px rgba(0, 128, 0, 0) solid;
-  border-bottom-right-radius: 28%;
-  border-bottom-left-radius: 28%;
-  opacity: 0.98;
-}
 
-.top-triangle-circle-middle {
-  position: absolute;
-  height: 2px;
-  width: 9.5px;
-  background: var(--mainBlack);
-  bottom: 0px;
-  left: -3px;
-}
-
-.top-triangle-circle {
-  position: relative;
-  height: 8px;
-  width: 8px;
-  bottom: 17px;
-  left: -2.5px;
-  background: var(--mainBlack);
-  border-radius: 100%;
-}
-
-.top-triangle-circle-top {
-  position: relative;
-  height: 8px;
-  width: 6px;
-  bottom: 3px;
-  left: -1.5px;
-  background: var(--mainBlack);
-}
-
-.light-house {
-  position: absolute;
-  bottom: 40px;
-  left: 46vw;
-}
-
-.mid-railings-rail {
-  position: absolute;
-  height: 10px;
-  width: 55px;
-  top: 72px;
-  left: -26px;
-  border-top-left-radius: 2px;
-  border-top-right-radius: 2px;
-  border: 1px solid var(--mainBlack);
-}
-
-.mid-rail {
-  position: absolute;
-  width: 1px;
-  height: 10px;
-  background: var(--mainBlack);
-}
-
-.mid-rail-1 {
-  left: 2px;
-}
-
-.mid-rail-2 {
-  left: 4px;
-}
-
-.mid-rail-3 {
-  left: 6px;
-}
-
-.mid-rail-5 {
-  left: 49px;
-}
-
-.mid-rail-6 {
-  left: 52px;
-}
-
-.left-mid-railings {
-  position: absolute;
-  top: 80px;
-  left: -28px;
-  border-left: 26px rgba(0, 128, 0, 0) solid;
-  border-right: 15px rgba(0, 128, 0, 0) solid;
-  border-bottom: 15px #141b11 solid;
-  border-top: 0px rgba(0, 128, 0, 0) solid;
-  border-bottom-right-radius: 0%;
-  border-bottom-left-radius: 100%;
-}
-
-.right-mid-railings {
-  position: absolute;
-  top: 80px;
-  left: -8px;
-  border-left: 26px rgba(0, 128, 0, 0) solid;
-  border-right: 15px rgba(0, 128, 0, 0) solid;
-  border-bottom: 15px #141b11 solid;
-  border-top: 0px rgba(0, 128, 0, 0) solid;
-  border-bottom-right-radius: 100%;
-  border-bottom-left-radius: 0%;
-}
-
-.top-ledge {
-  position: absolute;
-  height: 8px;
-  width: 50px;
-  top: 55px;
-  left: -23px;
-  background-color: var(--mainBlack);
-  border-bottom-right-radius: 100%;
-  border-bottom-left-radius: 100%;
-}
-
-.shine-circle {
-  border-radius: 100%;
-}
-
-.glow-shine-narrow-left {
-  position: absolute;
-  height: 360px;
-  width: 20px;
-  background: var(--lighthouseLight);
-  left: 0px;
-  top: 0px;
-  animation: pulsate 6s infinite 0s forwards linear;
-  transform: perspective(529px) rotateX(0deg) rotateY(-120deg) rotate(90deg);
-}
-
-.mid-ledge {
-  position: absolute;
-  height: 8px;
-  width: 52px;
-  top: 100px;
-  left: -24px;
-  background-color: var(--mainBlack);
-  border-bottom-right-radius: 100%;
-  border-bottom-left-radius: 100%;
-}
+/* Luzes do farol */
 .lighthouse-lights {
   position: absolute;
   height: 110px;
@@ -340,122 +333,127 @@ body {
 }
 
 .light {
+  position: relative;
+  height: 26px;
+  width: 10px;
   background: var(--lighthouseLight);
   border-top-right-radius: 20px;
   border-top-left-radius: 20px;
   box-shadow: rgba(255, 235, 59, 1) 0px 0 22px, rgba(252, 250, 185, 0.44) 0 0 3px 1px inset;
 }
 
-.light-right-top {
-  position: relative;
-  height: 26px;
+#light-right-top {
   top: 0px;
-  width: 10px;
   right: -24px;
 }
 
-.light-left-middle {
-  position: relative;
-  height: 26px;
+#light-left-middle {
   top: 30px;
-  width: 10px;
   right: -7px;
 }
+/* *** ---- *** */
 
-.light-left-bottom {
+/* Luzes inferiores do farol */
+
+.lighthouse-bottom-lights div{
   position: absolute;
-  height: 18px;
   top: -15px;
+  height: 18px;
   width: 8px;
+  border-radius: 0px;
+}
+
+#light-left-bottom {
   right: -22px;
-  border-radius: 0px;
 }
 
-.light-right-bottom {
-  position: absolute;
-  height: 18px;
-  top: -15px;
-  width: 8px;
+#light-right-bottom {
   right: -35px;
-  border-radius: 0px;
+}
+/* *** ---- *** */
+
+
+/* Rochas ao fundo */
+
+.back-rocks {
+  position: absolute;
+  width: 480px;
+  height: 50px;
+  left: -130px;
+  bottom: -47px;
 }
 
-
-.topbar {
+.back-rock{
   position: absolute;
-  height: 120px;
+  background: var(--mainGrey);
+  border-radius: 100%;
+}
+
+#back-rock-1 {
+  width: 68px;
+  height: 60px;
+  left: 0px;
+  bottom: -30px;
+}
+
+#back-rock-2 {
+  width: 70px;
+  height: 70px;
+  left: 68%;
+  bottom: -30px;
+}
+
+#back-rock-3 {
+  width: 55px;
+  height: 55px;
+  left: 88%;
+  bottom: -30px;
+}
+/* *** ---- *** */
+
+/* Rochas na frente */
+
+.front-rocks {
+  position: absolute;
+  bottom: -90px;
+  left: -145px;
+  height: 100px;
+  width: 350px;
+}
+
+.front-rock{
+  position: absolute;
+  border-radius: 100%;
+  background: var(--mainBlack);
+}
+
+#front-rock-1 {
+  left: 50px;
+  height: 150px;
+  width: 180px;
+}
+
+.satellite {
+  position: absolute;
+  height: 60px;
   width: 2px;
   background: var(--mainBlack);
-  opacity: 0.8;
+  left: 90px;
+  top: -40px;
 }
 
-.top-bars {
-  opacity: 0.8;
+#front-rock-2 {
+  bottom: 0px;
+  left: 240px;
+  height: 100px;
+  width: 150px;
 }
 
-.top-bar-1 {
-  left: -14px;
+#front-rock-3 {
+  bottom: -22px;
+  left: 365px;
+  height: 100px;
+  width: 90px;
 }
 
-.top-bar-2 {
-  left: -8px;
-}
-
-.top-bar-3 {
-  left: -1px;
-}
-
-.top-bar-4 {
-  left: 5.5px;
-}
-
-.top-bar-5 {
-  left: 12px;
-}
-
-.top-bar-6 {
-  left: 18px;
-}
-
-.top-railings {
-  position: absolute;
-  height: 8px;
-  width: 38px;
-  top: 45px;
-  left: -19px;
-  border: 2px solid #141b11;
-  border-radius: 2px;
-  opacity: 0.8;
-}
-
-.railing {
-  position: absolute;
-  height: 10px;
-  width: 2px;
-  background: var(--mainBlack);
-  top: -1px;
-}
-
-.top-railing-1 {
-  left: 6px;
-}
-
-.top-railing-2 {
-  left: 12px;
-}
-
-.top-railing-3 {
-  left: 19px;
-}
-
-.top-railing-4 {
-  left: 25px;
-}
-
-.top-railing-5 {
-  left: 32px;
-}
-
-.top-railing-6 {
-  left: 35px;
-}
+/* *** ---- *** */
